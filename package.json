@@ -8,13 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johnpapa/node-hello.git"
+    "url": "git+https://github.com/dpovshed/node-hello.git"
   },
-  "keywords": [],
+  "keywords": [
+    "experimental",
+    "heroku"
+  ],
+  "engines": {
+    "node": "16.x"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/johnpapa/node-hello/issues"
   },
-  "homepage": "https://github.com/johnpapa/node-hello#readme"
+  "homepage": "https://github.com/dpovshed/node-hello#readme"
 }
