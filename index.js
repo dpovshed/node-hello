@@ -32,6 +32,41 @@ const server = http.createServer((req, res) => {
   res.end(msg);
 });
 
+const server2 = http.createServer((req, res) => {
+  res.statusCode = 200;
+  let msg = `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Hello World Reactify</title>
+      </head>
+      <body>
+        <div id="root">....react output expected here in a few seconds...</div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"></script>
+        <script src="./react-script.js"></script>
+        <script type="text/javascript">
+          const REACT_VERSION = React.version;
+          // Define a simple React component
+          const HelloWorld = () => {
+            return React.createElement('h1', null, 'Hello World from React! React version: ' + REACT_VERSION);
+          };
+          // Render the component to the DOM
+          setTimeout(function() {
+            ReactDOM.render(React.createElement(HelloWorld), document.getElementById('root'))
+          }, 3000);
+        </script>
+      </body>
+    </html>`;
+  res.end(msg);
+});
+
 server.listen(port, () => {
   console.log(`Server running on http://localhost:${port}/`);
+});
+server2.listen(3001, () => {
+  console.log(`Server running on http://localhost:3001/`);
 });
