@@ -21,19 +21,21 @@ if (osType === 'Linux') {
   }
 }
 
-const server = http.createServer((req, res) => {
+const server0 = http.createServer((req, res) => {
   res.statusCode = 200;
   let msg = 'Wow! Hello World!\n'
   const version = process.versions.node
   msg += 'Node version: ' + version + '\n'
   msg += `OS Type: ${osType}\n`;
   msg += `OS Release: ${osRelease}\n`;
-  msg += osDistro + '\n';
+  msg += osDistro + '\n<hr>';
   res.end(msg);
 });
 
-const server2 = http.createServer((req, res) => {
+const server = http.createServer((req, res) => {
   res.statusCode = 200;
+  const node_version = process.versions.node
+
   let msg = `
     <!DOCTYPE html>
     <html>
@@ -44,6 +46,16 @@ const server2 = http.createServer((req, res) => {
         <title>Hello World Reactify</title>
       </head>
       <body>
+        <div>
+          Wow! Hello World!                   <br/>
+          <br/>
+          <hr>
+          Node version: ${node_version}       <br/>
+          OS Type: ${osType}                  <br/>
+          OS Release: ${osRelease}            <br/>
+          OS Distro: ${osDistro}              <br/>
+          <hr>
+        </div>
         <div id="root">....react output expected here in a few seconds...</div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.production.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"></script>
@@ -66,7 +78,4 @@ const server2 = http.createServer((req, res) => {
 
 server.listen(port, () => {
   console.log(`Server running on http://localhost:${port}/`);
-});
-server2.listen(3001, () => {
-  console.log(`Server running on http://localhost:3001/`);
 });
