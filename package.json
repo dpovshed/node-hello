@@ -4,7 +4,8 @@
   "description": "Node, React and Heroku 24",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "yarn build"
   },
   "repository": {
     "type": "git",
@@ -93,5 +94,6 @@
     "webpack": "^4.47.0",
     "xlsx": "^0.17.5",
     "yup": "^0.32.9"
-  }
+  },
+  "license": "MIT"
 }
